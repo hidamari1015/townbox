@@ -5,8 +5,8 @@
 | email       | string | null: false |
 | password    | string | null: false |
 | nickname    | string | null: false |
-| prefecture  | text   | null: false |
-| city        | text   | null: false |
+| prefecture  | string | null: false |
+| city        | string | null: false |
 
 - has_many :tweets
 - has_many :comments
