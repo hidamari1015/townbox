@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :move_to_index, only: [:edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy, :search]
   
   def index
     @tweet = Tweet.includes(:user)
@@ -42,6 +42,10 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to action: :index
+  end
+
+  def search
+    @tweets = Tweet.search(params[:keyword])
   end
 
   private
