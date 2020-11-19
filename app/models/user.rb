@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :prefecture, presence: true
   validates :city,presence: true
+
+  has_many :tweets
 end
