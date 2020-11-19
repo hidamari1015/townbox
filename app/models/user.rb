@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :city,presence: true
 
   has_many :tweets
+  has_many :comments
 end
