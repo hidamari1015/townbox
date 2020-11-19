@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@nickname}さんの情報"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">投稿名</th>
+            <td class="table__col2"><%= @nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">居住地</th>
+            <td class="table__col2"><%= @prefecture %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">居住都市</th>
+            <td class="table__col2"><%= @city %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@nickname}さんのプロトタイプ"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: 'tweets/tweet', collection: @tweets %>
+      </div>
+    </div>
+  </div>
+</div>

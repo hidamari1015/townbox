@@ -5,6 +5,6 @@
     <p class="card__summary">
       <%= tweet.catch_copy %>
     </p>
-    <%= link_to tweet.user.nickname, root_path, class: :card__user %>
+    <%= link_to tweet.user.nickname, user_path(tweet.user.id), class: :card__user %>
   </div>
 </div>

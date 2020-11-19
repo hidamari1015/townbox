@@ -4,7 +4,7 @@
       <p class="tweet__hedding">
         <%= @tweet.title%>
       </p>
-      <%= link_to "by #{@tweet.user.nickname}", root_path, class: :tweet__user %>
+      <%= link_to "by #{@tweet.user.nickname}", user_path(@tweet.user.id), class: :tweet__user %>
       <%if user_signed_in? && current_user.id == @tweet.user_id %>
         <div class="tweet__manage">
           <%= link_to "編集する", edit_tweet_path(@tweet.id), class: :tweet__btn %>
@@ -52,7 +52,7 @@
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.text %>
-              <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+              <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %>
             </li>
           <% end %>
         </ul>

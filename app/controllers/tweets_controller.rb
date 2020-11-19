@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-
+  before_action :move_to_index, only: [:edit, :update, :destroy]
+  
   def index
     @tweet = Tweet.includes(:user)
   end
@@ -47,5 +48,12 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    tweet = Tweet.find(params[:id])
+    unless current_user.id == tweet.user_id
+      redirect_to action: :index
+    end
   end
 end
