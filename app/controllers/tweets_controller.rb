@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :move_to_index, only: [:edit, :update, :destroy, :search]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
   
   def index
     @tweet = Tweet.includes(:user)
